@@ -5,9 +5,27 @@ package com.leapintegration.model;
  */
 public class ProductModel {
     //name, price, description
+
+    private int id;
     private String productName;
     private double price;
     private String description;
+
+
+    public ProductModel(int id, String productName, double price, String description) {
+        this.id = id;
+        this.productName = productName;
+        this.price = price;
+        this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getProductName() {
         return productName;
@@ -36,7 +54,8 @@ public class ProductModel {
     @Override
     public String toString() {
         return "ProductModel{" +
-                "productName='" + productName + '\'' +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 '}';
