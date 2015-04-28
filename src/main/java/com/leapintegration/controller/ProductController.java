@@ -49,21 +49,22 @@ public class ProductController {
 
     }
 
-    @RequestMapping(value = Constants.DELETE, method = RequestMethod.POST)
+    @RequestMapping(value = Constants.DELETE, method = RequestMethod.GET)
     public ModelAndView removeProduct(@PathVariable(value = "id") String id) {
 
-        ModelAndView modelAndView = new ModelAndView("redirect:home");
-        productService.deleteProduct(Integer.parseInt(id));
-        modelAndView.addObject("deleted", "Product with id: " + id + " deleted");
+        ModelAndView modelAndView = new ModelAndView("redirect:/showProducts");
+        int productId = Integer.parseInt(id);
+        productService.deleteProduct(productId);
+        modelAndView.addObject("deleted", productId);
         return modelAndView;
     }
 
     @RequestMapping(value = Constants.SHOW_PRODUCTS, method = RequestMethod.GET)
-    public ModelAndView showProducts(){
+    public ModelAndView showProducts() {
 
-    ModelAndView modelAndView = new ModelAndView("showProducts");
-    modelAndView.addObject("products", productService.getProducts());
+        ModelAndView modelAndView = new ModelAndView("showProducts");
+        modelAndView.addObject("products", productService.getProducts());
 
-    return modelAndView;
+        return modelAndView;
     }
 }

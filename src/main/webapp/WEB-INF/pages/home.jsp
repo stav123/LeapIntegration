@@ -15,11 +15,6 @@
 </head>
 <body>
 
-
-<c:if test="${not empty deleted}">
-    <c:out value="${deleted}"/>
-</c:if>
-
 <div class="container">
     <h2>
         <center>Product Specification</center>

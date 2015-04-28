@@ -13,25 +13,28 @@
     <jsp:include page="header.jsp"/>
 </head>
 <body>
-    <table class="table table-striped">
+<c:if test="${not empty param.deleted}">
+    <div class="alert alert-success">
+        <c:out value="Deleted product"></c:out>
+    </div>
+</c:if>
+<table class="table table-striped">
     <th>ID</th>
     <th>Product Name</th>
     <th>Description</th>
     <th>Price</th>
     <th>Operation</th>
-        <tr>
-    <c:forEach items="${products}" var="product">
-        <tr>
-            <td>${product.id}</td>
-            <td>${product.productName}</td>
-            <td>${product.description}</td>
-            <td>${product.price}</td>
-            <td><a href="http://www.google.com">Delete</a>
-                <a href="http://www.google.com">Edit</a>
-            </td>
-        </tr>
+    <tr>
+        <c:forEach items="${products}" var="product">
+    <tr>
+        <td>${product.id}</td>
+        <td>${product.productName}</td>
+        <td>${product.description}</td>
+        <td>${product.price}</td>
+        <td><a class="btn btn-danger" href='<c:url value="/remove/${product.id}"/>'/>Delete</td>
+    </tr>
     </c:forEach>
-        </tr>
-    </table>
+    </tr>
+</table>
 </body>
 </html>
