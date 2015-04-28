@@ -16,10 +16,5 @@ public interface ProductDAO {
     List<ProductModel> getAllProducts();
     ProductModel getProductById(int id);
 
-
-
-
-
-
 }
 
