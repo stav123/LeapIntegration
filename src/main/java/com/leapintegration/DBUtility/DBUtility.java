@@ -23,15 +23,15 @@ public class DBUtility {
         this.dataSource = dataSource;
     }
 
-        public Connection getConnection() {
+    public Connection getConnection() {
 
-            if (connection != null) {
-                try {
-                    connection = dataSource.getConnection();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+        if (connection != null) {
+            try {
+                connection = dataSource.getConnection();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-            return connection;
         }
+        return connection;
+    }
 }

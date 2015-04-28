@@ -8,9 +8,11 @@ import java.util.List;
  * Created by Tommy on 4/28/2015.
  */
 public interface ProductService {
-        //add, remove, search,
-        ProductModel addProduct(ProductModel productModel);
-    boolean removeProduct(int id);
-    ProductModel editProduct(int id);
-    List<ProductModel> getAllProducts();
+
+
+    void createProduct(ProductModel productModel);
+    void deleteProduct(int id);
+    void updateProduct(ProductModel productModel);
+    List<ProductModel> getProducts();
+    ProductModel getProductById(int id);
 }

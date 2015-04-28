@@ -12,7 +12,7 @@ public interface ProductDAO {
 
     void addProduct(ProductModel productModel);
     void removeProduct(int id);
-    ProductModel editProduct(ProductModel ProductModel);
+    void editProduct(ProductModel productModel);
     List<ProductModel> getAllProducts();
     ProductModel getProductById(int id);
 

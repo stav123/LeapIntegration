@@ -12,6 +12,11 @@ public class ProductModel {
     private String description;
 
 
+    public ProductModel(){
+
+    }
+
+
     public ProductModel(int id, String productName, double price, String description) {
         this.id = id;
         this.productName = productName;
