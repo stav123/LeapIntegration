@@ -40,7 +40,6 @@ public class ProductDAOImpl implements ProductDAO {
 //        return products;
 //    }
 
-
     public void addProduct(ProductModel productModel) {
 
         final String sql = "INSERT INTO PRODUCT (PRODUCTNAME, PRICE, DESCRIPTION) VALUES (?,?,?)";

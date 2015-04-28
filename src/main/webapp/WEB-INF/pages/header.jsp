@@ -30,8 +30,9 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class=${current == 'index' ? 'active' : ''}><a href='<spring:url value="/home" />'>Home</a></li>
-                    <li class=${current == 'index' ? 'active' : ''}><a href='<spring:url value="/" />'>Go to Catalog</a></li>
                     <li class=${current == 'users' ? 'active' : ''}><a href='<spring:url value="/showProducts" />'>Show Products</a></li>
+                    <li class=${current == 'index' ? 'active' : ''}><a href='<spring:url value="/dummyCatalog" />'>Go to Catalog</a></li>
+
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
