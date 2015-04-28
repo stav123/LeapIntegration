@@ -1,10 +1,15 @@
 package com.leapintegration.dao;
 
+import com.leapintegration.DBUtility.DBUtility;
 import com.leapintegration.model.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,11 +19,11 @@ import java.util.List;
 @Component
 public class ProductDAOImpl implements ProductDAO {
 
-    private DataSource dataSource;
+    private DBUtility dbUtility;
 
     @Autowired
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public void setDbUtility(DBUtility dbUtility) {
+        this.dbUtility = dbUtility;
     }
 
     List<ProductModel> products = new ArrayList<ProductModel>();
@@ -36,15 +41,40 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
 
-    public ProductModel addProduct(ProductModel productModel) {
-        return null;
+    public void addProduct(ProductModel productModel) {
+
+        final String sql = "INSERT INTO PRODUCT (PRODUCT_NAME, PRICE, DESCR) VALUES (?,?,?)";
+        Connection connection = dbUtility.getConnection();
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, productModel.getProductName());
+            ps.setDouble(2, productModel.getPrice());
+            ps.setString(3, productModel.getDescription());
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public boolean removeProduct(int id) {
-        return false;
+    public void removeProduct(int id) {
+
+        final String sql = "DELETE FROM PRODUCT WHERE ID = ?";
+        Connection connection = dbUtility.getConnection();
+
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
-    public ProductModel editProduct(int id) {
+    public ProductModel editProduct(ProductModel ProductModel) {
+        //TODO
         return null;
     }
 
