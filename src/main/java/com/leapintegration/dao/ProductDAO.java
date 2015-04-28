@@ -14,9 +14,12 @@ public interface ProductDAO {
     boolean removeProduct(int id);
     ProductModel editProduct(int id);
     List<ProductModel> getAllProducts();
+    ProductModel getProductById(int id);
+
 
 
 
 
 
 }
+

@@ -1,5 +1,6 @@
-package com.leapintegration.dao;
+package com.leapintegration.ServiceInterface;
 
+import com.leapintegration.dao.ProductDAO;
 import com.leapintegration.model.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -9,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by StefanS on 4/27/15.
+ * Created by Tommy on 4/28/2015.
  */
 @Component
-public class ProductDAOImpl implements ProductDAO {
+public class ServiceInterfaceImpl implements ServiceInterface {
 
     private DataSource dataSource;
 
@@ -22,10 +23,10 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     List<ProductModel> products = new ArrayList<ProductModel>();
-    ProductModel product1 = new ProductModel(1, "product1", 10.00, "testDescr1");
-    ProductModel product2 = new ProductModel(2, "product2", 20.00, "testDescr2");
-    ProductModel product3 = new ProductModel(3, "product3", 30.00, "testDescr3");
-    ProductModel product4 = new ProductModel(4, "product4", 40.00, "testDescr4");
+    ProductModel product1 = new ProductModel(1, "product1", 15.00, "testDescr1");
+    ProductModel product2 = new ProductModel(2, "product1", 25.00, "testDescr2");
+    ProductModel product3 = new ProductModel(3, "product1", 35.00, "testDescr3");
+    ProductModel product4 = new ProductModel(4, "product1", 45.00, "testDescr4");
 
     List<ProductModel> populateList() {
         products.add(product1);
@@ -34,7 +35,6 @@ public class ProductDAOImpl implements ProductDAO {
         products.add(product4);
         return products;
     }
-
 
     public ProductModel addProduct(ProductModel productModel) {
         return null;
@@ -52,6 +52,4 @@ public class ProductDAOImpl implements ProductDAO {
 
         return populateList();
     }
-
-
 }
