@@ -37,6 +37,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     public ProductModel getProductById(int id) {
-        return productDAO.getProductById(id);
+        ProductModel productModel = productDAO.getProductById(id);
+        return productModel;
     }
 }

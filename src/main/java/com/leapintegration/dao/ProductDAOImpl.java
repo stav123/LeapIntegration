@@ -43,7 +43,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     public void addProduct(ProductModel productModel) {
 
-        final String sql = "INSERT INTO PRODUCT (PRODUCT_NAME, PRICE, DESCR) VALUES (?,?,?)";
+        final String sql = "INSERT INTO PRODUCT (PRODUCTNAME, PRICE, DESCRIPTION) VALUES (?,?,?)";
         Connection connection = dbUtility.getConnection();
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
