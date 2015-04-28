@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: StefanS
@@ -11,6 +12,12 @@
     <title></title>
 </head>
 <body>
-hello from home;
+<c:forEach items="${products}" var="product">
+  <c:out value="${product.id}"></c:out>
+  <c:out value="${product.productName}"></c:out>
+  <c:out value="${product.price}"></c:out>
+  <c:out value="${product.description}"></c:out>
+
+</c:forEach>
 </body>
 </html>

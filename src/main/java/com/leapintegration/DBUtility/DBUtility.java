@@ -25,7 +25,7 @@ public class DBUtility {
 
     public Connection getConnection() {
 
-        if (connection != null) {
+        if (connection == null) {
             try {
                 connection = dataSource.getConnection();
             } catch (SQLException e) {

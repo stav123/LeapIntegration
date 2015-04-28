@@ -6,4 +6,9 @@ package com.leapintegration.constants;
 public class Constants {
 
     //all constants go here
+
+    public static final String HOME = "/home";
+    public static final String EDIT = "/edit";
+    public static final String DELETE = "/delete";
+
 }

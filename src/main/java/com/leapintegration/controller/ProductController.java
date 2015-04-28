@@ -1,11 +1,14 @@
 package com.leapintegration.controller;
 
+import com.leapintegration.constants.Constants;
 import com.leapintegration.dao.ProductDAO;
 import com.leapintegration.dao.ProductDAOImpl;
+import com.leapintegration.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -15,25 +18,19 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ProductController {
 
-
     @Autowired
-    private ProductDAO productDAO;
+    private ProductService productService;
 
-    public void setProductDAO(ProductDAO productDAO) {
-        this.productDAO = productDAO;
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
     }
 
-    @RequestMapping(value = "/home")
+    @RequestMapping(value = Constants.HOME, method = RequestMethod.GET)
     public ModelAndView showHome() {
-        return new ModelAndView("home");
-    }
 
-    @RequestMapping(value = {"/getProducts"})
-    public ModelAndView getProducts() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("products", productDAO.getAllProducts());
-        modelAndView.addObject("message", "helloTest");
-        modelAndView.setViewName("products");
+        ModelAndView modelAndView = new ModelAndView("home");
+        modelAndView.addObject("products", productService.getProducts());
+
         return modelAndView;
     }
 
