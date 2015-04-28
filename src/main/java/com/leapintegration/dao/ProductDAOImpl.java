@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +58,18 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     public void removeProduct(int id) {
-        //TODO
+
+        final String sql = "DELETE FROM PRODUCT WHERE ID = ?";
+        Connection connection = dbUtility.getConnection();
+
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
