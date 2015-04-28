@@ -1,8 +1,10 @@
 package com.leapintegration.dao;
 
 import com.leapintegration.model.ProductModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,13 @@ import java.util.List;
 @Component
 public class ProductDAOImpl implements ProductDAO {
 
+
+    private DataSource dataSource;
+
+    @Autowired
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     List<ProductModel> products = new ArrayList<ProductModel>();
     ProductModel product1 = new ProductModel(1, "product1", 10.00, "testDescr1");
@@ -44,7 +53,6 @@ public class ProductDAOImpl implements ProductDAO {
 
         return populateList();
     }
-
 
 
 }
