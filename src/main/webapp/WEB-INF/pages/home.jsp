@@ -10,43 +10,65 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <jsp:include page="bootstrap.jsp"/>
+    <jsp:include page="header.jsp"/>
 </head>
 <body>
-<c:forEach items="${products}" var="product">
-    <c:out value="${product.id}"></c:out>
-    <c:out value="${product.productName}"></c:out>
-    <c:out value="${product.price}"></c:out>
-    <c:out value="${product.description}"></c:out>
-</c:forEach>
+
 
 <c:if test="${not empty deleted}">
     <c:out value="${deleted}"/>
 </c:if>
 
-<form:form action="addProduct" method="POST" commandName="productModel">
-    <table border="0px">
-        <tr>
-            <td align="center" colspan="2"><h2>Available products</h2></td>
-        </tr>
-        <tr>
-            <td>Product name:</td>
-            <td><form:input path="productName"></form:input></td>
-        </tr>
-        <tr>
-            <td>Description:</td>
-            <td><form:input path="description"></form:input></td>
-        </tr>
-        <tr>
-            <td>Price:</td>
-            <td><form:input path="price"></form:input></td>
-        </tr>
-        <tr>
+<div class="container">
+    <h2>
+        <center>Product Specification</center>
+    </h2>
 
-        </tr>
-    </table>
-    <form:button type="submit">c00l b0tt0n</form:button>
-</form:form>
+    <c:if test="${param.isAdded eq true}">
+        <div class="alert alert-success"><c:out value="Product added successfully"/></div>
+    </c:if>
+
+    <form:form class="form-horizontal" role="form" action="addProduct" method="post">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="productName">Product Name :</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="productName" name="productName"
+                       placeholder="Enter product name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="description">Product Description:</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="description" name="description"
+                       placeholder="Enter description">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="price">Product Price:</label>
+
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="price" name="price" placeholder="Enter price">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="description">Product Price:</label>
+
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="3" id="description1"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Add</button>
+            </div>
+        </div>
+    </form:form>
+</div>
+
 
 </body>
 

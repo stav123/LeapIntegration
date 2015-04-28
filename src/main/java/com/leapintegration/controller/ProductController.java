@@ -43,7 +43,8 @@ public class ProductController {
     public ModelAndView createProduct(@ModelAttribute("productModel") ProductModel productModel) {
         productService.createProduct(productModel);
         ModelAndView modelAndView = new ModelAndView("redirect:home");
-
+        Boolean isAdded = true;
+        modelAndView.addObject("isAdded", isAdded);
         return modelAndView;
 
     }
@@ -55,7 +56,14 @@ public class ProductController {
         productService.deleteProduct(Integer.parseInt(id));
         modelAndView.addObject("deleted", "Product with id: " + id + " deleted");
         return modelAndView;
-
     }
 
+    @RequestMapping(value = Constants.SHOW_PRODUCTS, method = RequestMethod.GET)
+    public ModelAndView showProducts(){
+
+    ModelAndView modelAndView = new ModelAndView("showProducts");
+    modelAndView.addObject("products", productService.getProducts());
+
+    return modelAndView;
+    }
 }
