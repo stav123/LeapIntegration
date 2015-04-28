@@ -73,7 +73,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     }
 
-    public ProductModel editProduct(int id) {
+    public ProductModel editProduct(ProductModel ProductModel) {
         //TODO
         return null;
     }
