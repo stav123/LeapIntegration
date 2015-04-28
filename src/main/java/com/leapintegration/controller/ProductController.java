@@ -8,10 +8,7 @@ import com.leapintegration.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -49,8 +46,16 @@ public class ProductController {
 
         return modelAndView;
 
-
     }
 
+    @RequestMapping(value = Constants.DELETE, method = RequestMethod.POST)
+    public ModelAndView removeProduct(@PathVariable(value = "id") String id) {
+
+        ModelAndView modelAndView = new ModelAndView("redirect:home");
+        productService.deleteProduct(Integer.parseInt(id));
+        modelAndView.addObject("deleted", "Product with id: " + id + " deleted");
+        return modelAndView;
+
+    }
 
 }

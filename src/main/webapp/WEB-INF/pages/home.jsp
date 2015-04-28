@@ -18,8 +18,11 @@
     <c:out value="${product.productName}"></c:out>
     <c:out value="${product.price}"></c:out>
     <c:out value="${product.description}"></c:out>
-
 </c:forEach>
+
+<c:if test="${not empty deleted}">
+    <c:out value="${deleted}"/>
+</c:if>
 
 <form:form action="addProduct" method="POST" commandName="productModel">
     <table border="0px">
@@ -42,7 +45,7 @@
 
         </tr>
     </table>
-    <input type="submit" value="Submit"/>
+    <form:button type="submit">c00l b0tt0n</form:button>
 </form:form>
 
 </body>
