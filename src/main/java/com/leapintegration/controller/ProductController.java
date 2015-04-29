@@ -67,4 +67,24 @@ public class ProductController {
 
         return modelAndView;
     }
+
+    @RequestMapping(value = Constants.EDIT, method = RequestMethod.GET)
+    public ModelAndView editProduct(@PathVariable(value = "id") String id) {
+
+        ModelAndView modelAndView = new ModelAndView("edit");
+        ProductModel productModel = productService.getProductById(Integer.parseInt(id));
+        modelAndView.addObject("product", productModel);
+
+        return modelAndView;
+
+    }
+
+    @RequestMapping(value = Constants.UPDATE, method = RequestMethod.POST)
+    public ModelAndView updateProduct(@ModelAttribute("productModel") ProductModel productModel) {
+        productService.updateProduct(productModel);
+        ModelAndView modelAndView = new ModelAndView("redirect:/showProducts");
+
+        return modelAndView;
+
+    }
 }

@@ -74,13 +74,18 @@ public class ProductDAOImpl implements ProductDAO {
 
     public void editProduct(ProductModel productModel) {
 
-        String sql = "UPDATE PRODUCT SET description=?, productName=?, price=?";
+        String sql = "UPDATE PRODUCT SET description=?, productName=?, price=? WHERE id=?";
+
         Connection connection = dbUtility.getConnection();
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
+
             ps.setString(1, productModel.getDescription());
-            ps.setString(2, productModel.getDescription());
+            ps.setString(2, productModel.getProductName());
             ps.setDouble(3, productModel.getPrice());
+            ps.setInt(4, productModel.getId());
+            ps.executeUpdate();
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -109,7 +114,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     public ProductModel getProductById(int id) {
 
-        final String sql = "SELECT * FROM PRODUCT WHERE ID= ?";
+        final String sql = "SELECT * FROM PRODUCT WHERE ID=?";
         ProductModel productModel = new ProductModel();
         Connection connection = dbUtility.getConnection();
         try {

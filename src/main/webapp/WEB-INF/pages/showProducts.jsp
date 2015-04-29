@@ -24,7 +24,8 @@
         $(document).ready(function () {
             $(".triggerEdit").click(function (e) {
                 e.preventDefault();
-                $("#modalRemove").modal();
+                $("#modalEdit .removeBtn").attr("href", $(this).attr("href"));
+                $("#modalEdit").modal();
             });
         })
     </script>
@@ -32,7 +33,7 @@
 <body>
 
 <div class="bs-example">
-    <!-- Modal HTML -->
+    <!-- Modal Remove HTML -->
     <div id="modalRemove" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -46,6 +47,28 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <a href="" class="btn btn-danger removeBtn">Delete Product</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bs-example">
+    <!-- Modal Edit HTML -->
+    <div id="modalEdit" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Edit</h4>
+                </div>
+                <div class="modal-body">
+                    <p>//TODO IMPLEMENT FIELDS FOR EDIT</p>
+                    <p> ${product.id} </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a href="" class="btn btn-info removeBtn">Save Product</a>
                 </div>
             </div>
         </div>
@@ -72,8 +95,7 @@
         <td>${product.description}</td>
         <td>${product.price}</td>
         <td><a class="btn btn-danger triggerRemove" href='<c:url value="/remove/${product.id}"/>'/>Delete
-        <a href="#myModal" class="btn btn-warning triggerEdit" data-toggle="modal">Edit</a>
-        </td>
+        <a class="btn btn-warning triggerEdit" href='<c:url value="/edit/${product.id}"/>'/>Edit </td>
     </tr>
     </c:forEach>
     </tr>
