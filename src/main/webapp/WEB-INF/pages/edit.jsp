@@ -28,21 +28,21 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="productName">Product Name :</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="productName" name="productName" >
+      <input type="text" class="form-control" id="productName" name="productName" value="${product.productName}">
     </div>
   </div>
 
   <div class="form-group">
     <label class="control-label col-sm-2" for="description">Product Description:</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="description" name="description">
+      <input type="text" class="form-control" id="description" name="description" value="${product.description}">
     </div>
   </div>
 
   <div class="form-group">
     <label class="control-label col-sm-2" for="price">Product Price:</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="price" name="price">
+      <input type="number" class="form-control" id="price" name="price" value="${product.price}">
     </div>
   </div>
 
