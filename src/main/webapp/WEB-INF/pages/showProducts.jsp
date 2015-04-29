@@ -63,12 +63,11 @@
                     <h4 class="modal-title">Edit</h4>
                 </div>
                 <div class="modal-body">
-                    <p>//TODO IMPLEMENT FIELDS FOR EDIT</p>
-                    <p> ${product.id} </p>
+                    <p>Do you want to edit this product?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <a href="" class="btn btn-info removeBtn">Save Product</a>
+                    <a href="" class="btn btn-info removeBtn">Edit Product</a>
                 </div>
             </div>
         </div>
@@ -94,7 +93,7 @@
         <td>${product.productName}</td>
         <td>${product.description}</td>
         <td>${product.price}</td>
-        <td><a class="btn btn-danger triggerRemove" href='<c:url value="/remove/${product.id}"/>'/>Delete
+        <td><a class="btn btn-danger triggerRemove" style="margin-right: 15px" href='<c:url value="/remove/${product.id}"/>'/>Delete
         <a class="btn btn-warning triggerEdit" href='<c:url value="/edit/${product.id}"/>'/>Edit </td>
     </tr>
     </c:forEach>
