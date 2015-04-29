@@ -16,7 +16,7 @@
 <body>
 
 
-<form:form class="form-horizontal" role="form" action="update/${id}" method="POST">
+<form:form class="form-horizontal" role="form" action="update" method="POST">
 
   <div class="form-group">
     <label class="control-label col-sm-2" for="id">Product ID :</label>
