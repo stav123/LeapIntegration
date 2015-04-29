@@ -51,8 +51,6 @@
         </div>
     </div>
 </div>
-</body>
-</html>
 
 <c:if test="${not empty param.deleted}">
     <div class="alert alert-success">
