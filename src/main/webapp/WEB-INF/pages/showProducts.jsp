@@ -71,8 +71,9 @@
         <td>${product.productName}</td>
         <td>${product.description}</td>
         <td>${product.price}</td>
-        <td><a class="btn btn-danger triggerRemove" href='<c:url value="/remove/${product.id}"/>'/>Delete</td>
-        <td><a href="#myModal" class="btn btn-warning triggerEdit" data-toggle="modal">Edit</a></td>
+        <td><a class="btn btn-danger triggerRemove" href='<c:url value="/remove/${product.id}"/>'/>Delete
+        <a href="#myModal" class="btn btn-warning triggerEdit" data-toggle="modal">Edit</a>
+        </td>
     </tr>
     </c:forEach>
     </tr>
