@@ -81,6 +81,7 @@
 </c:if>
 
 <table class="table table-striped">
+    <th></th>
     <th>ID</th>
     <th>Product Name</th>
     <th>Description</th>
@@ -89,6 +90,7 @@
     <tr>
         <c:forEach items="${products}" var="product">
     <tr>
+        <td><input type="checkbox" name="checked" value="checked"></td>
         <td>${product.id}</td>
         <td>${product.productName}</td>
         <td>${product.description}</td>
