@@ -15,4 +15,5 @@ public class Constants {
     public static final String UPDATE = "/edit/update";
     public static final String DELETE_ALL = "/deleteAll";
 
+
 }
