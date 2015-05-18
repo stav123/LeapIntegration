@@ -88,7 +88,7 @@ public class ProductController {
 
     }
 
-    @RequestMapping(value = Constants.DELETE_ALL, method = RequestMethod.GET)
+    @RequestMapping(value = Constants.DELETE_ALL, method = RequestMethod.POST)
     public ModelAndView deleteAll(@RequestParam(value = "checked") String[] id){
         productService.deleteAllProducts(id);
         return new ModelAndView("redirect:/showProducts");

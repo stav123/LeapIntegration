@@ -138,16 +138,15 @@ public class ProductDAOImpl implements ProductDAO {
         final String sql = "DELETE FROM PRODUCT WHERE ID=?";
         Connection connection = dbUtility.getConnection();
         PreparedStatement ps = null;
-        for(int i = 0; i <= id.length; i++){
+        for(int i = 0; i < id.length; i++){
             try {
                 ps = connection.prepareStatement(sql);
                 ps.setInt(1, Integer.parseInt(id[i]));
+                ps.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-
-
     }
 
 
