@@ -29,6 +29,14 @@
                 $("#modalEdit").modal();
             });
         })
+
+        function toggle(source) {
+            checkboxes = document.getElementsByName('checked');
+            for(var i=0, n=checkboxes.length;i<n;i++) {
+                checkboxes[i].checked = source.checked;
+            }
+        }
+
     </script>
 </head>
 <body>
@@ -82,7 +90,7 @@
 </c:if>
 <form:form class="form-horizontal" role="form" action="deleteAll" method="POST">
 <table class="table table-striped">
-    <th></th>
+    <th><input type="checkbox" name="select-all" id="select-all" onclick="toggle(this)"/></th>
     <th>ID</th>
     <th>Product Name</th>
     <th>Description</th>
