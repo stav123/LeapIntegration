@@ -133,5 +133,11 @@ public class ProductDAOImpl implements ProductDAO {
         return productModel;
     }
 
+    public void deleteAllProducts() {
+
+        final String sql = "DELETE FROM PRODUCT WHERE ID=?";
+
+    }
+
 
 }

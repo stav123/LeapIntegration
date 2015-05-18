@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: StefanS
@@ -79,7 +80,7 @@
         <c:out value="Deleted product"></c:out>
     </div>
 </c:if>
-
+<form:form class="form-horizontal" role="form" action="deleteAll" method="POST">
 <table class="table table-striped">
     <th></th>
     <th>ID</th>
@@ -90,7 +91,7 @@
     <tr>
         <c:forEach items="${products}" var="product">
     <tr>
-        <td><input type="checkbox" name="checked" value="checked"></td>
+        <td><input type="checkbox" name="checked" value="${product.id}"></td>
         <td>${product.id}</td>
         <td>${product.productName}</td>
         <td>${product.description}</td>
@@ -101,6 +102,8 @@
     </c:forEach>
     </tr>
 </table>
+    <button type="submit" class="btn btn-default">Delete All</button>
+</form:form>
 
 </body>
 </html>

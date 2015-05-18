@@ -13,5 +13,6 @@ public class Constants {
     public static final String ADD = "/addProduct";
     public static final String SHOW_PRODUCTS = "/showProducts";
     public static final String UPDATE = "/edit/update";
+    public static final String DELETE_ALL = "/deleteAll";
 
 }

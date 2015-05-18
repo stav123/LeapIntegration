@@ -40,4 +40,8 @@ public class ProductServiceImpl implements ProductService {
         ProductModel productModel = productDAO.getProductById(id);
         return productModel;
     }
+
+    public void deleteAllProducts() {
+        productDAO.deleteAllProducts();
+    }
 }
