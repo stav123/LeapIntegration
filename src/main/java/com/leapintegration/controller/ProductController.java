@@ -90,7 +90,7 @@ public class ProductController {
 
     @RequestMapping(value = Constants.DELETE_ALL, method = RequestMethod.GET)
     public ModelAndView deleteAll(@RequestParam(value = "checked") String[] id){
-        productService.deleteAllProducts();
+        productService.deleteAllProducts(id);
         return new ModelAndView("redirect:/showProducts");
     }
 }
