@@ -102,7 +102,7 @@ public class ProductDAOImpl implements ProductDAO {
                 ProductModel productModel = new ProductModel();
                 productModel.setId(rs.getInt("id"));
                 productModel.setProductName(rs.getString("productName"));
-                productModel.setPrice(rs.getLong("price"));
+                productModel.setPrice(rs.getDouble("price"));
                 productModel.setDescription(rs.getString("description"));
                 products.add(productModel);
             }

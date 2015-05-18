@@ -13,6 +13,20 @@
     <jsp:include page="bootstrap.jsp"/>
     <jsp:include page="header.jsp"/>
 </head>
+<style>
+    .form-control {
+        display: block;
+        width: 50%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+
+</style>
 <body>
 
 <div class="container">
@@ -47,9 +61,6 @@
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="price" name="price" placeholder="Enter price">
             </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="description">Product Price:</label>
         </div>
 
         <div class="form-group">
