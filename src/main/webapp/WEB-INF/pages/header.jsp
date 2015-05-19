@@ -29,7 +29,7 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href='<spring:url value="/home" />'>Add Products</a></li>
+                    <li><a href='<spring:url value="/addProduct" />'>Add Products</a></li>
                     <li><a href='<spring:url value="/showProducts" />'>Show Products</a></li>
                     <li><a href='<spring:url value="/dummyCatalog" />'>Go to Catalog</a></li>
 

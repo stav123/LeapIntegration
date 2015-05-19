@@ -33,7 +33,7 @@ public class ProductController {
     @RequestMapping(value = Constants.HOME, method = RequestMethod.GET)
     public ModelAndView showHome() {
 
-        ModelAndView modelAndView = new ModelAndView("home");
+        ModelAndView modelAndView = new ModelAndView("addProduct");
         modelAndView.addObject("products", productService.getProducts());
 
         return modelAndView;
@@ -42,7 +42,7 @@ public class ProductController {
     @RequestMapping(value = Constants.ADD, method = RequestMethod.POST)
     public ModelAndView createProduct(@ModelAttribute("productModel") ProductModel productModel) {
         productService.createProduct(productModel);
-        ModelAndView modelAndView = new ModelAndView("redirect:home");
+        ModelAndView modelAndView = new ModelAndView("redirect:addProduct");
         Boolean isAdded = true;
         modelAndView.addObject("isAdded", isAdded);
         return modelAndView;
