@@ -12,6 +12,28 @@
 <head>
     <jsp:include page="bootstrap.jsp"/>
     <jsp:include page="header.jsp"/>
+
+    <script>
+        src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js">
+        $(document).ready(function () {
+
+        $('#regform').validate({ // initialize the plugin
+        rules: {
+        productName: {
+        required: true
+        },
+        description: {
+        required: true,
+        minlength: 5
+        }
+        },
+        messages: {
+        productName : "please enter at least 2 characters",
+        description : "please enter at least 5 characters"
+        }
+        });
+        });
+    </script>
 </head>
 <style>
     .form-control {
@@ -24,7 +46,7 @@
         color: #555;
         background-color: #fff;
         background-image: none;
-        border: 1px solid #ccc;
+        border: 1px solid #85FF5C;
 
 </style>
 <body>
@@ -38,7 +60,7 @@
         <div class="alert alert-success"><c:out value="Product added successfully"/></div>
     </c:if>
 
-    <form:form class="form-horizontal" role="form" action="addProduct" method="post">
+    <form:form id="regform" class="form-horizontal" role="form" action="addProduct" method="post">
         <div class="form-group">
             <label class="control-label col-sm-2" for="productName">Product Name :</label>
 
