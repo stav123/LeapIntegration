@@ -89,7 +89,12 @@ public class ProductController {
     }
 
     @RequestMapping(value = Constants.DELETE_ALL, method = RequestMethod.POST)
-    public ModelAndView deleteAll(@RequestParam(value = "checked") String[] id){
+    public ModelAndView deleteAll(@RequestParam(value = "checked", required = false) String[] id) {
+        if (id == null || id.length == 0) {
+            ModelAndView modelAndView = new ModelAndView("redirect:/showProducts");
+            modelAndView.addObject("error", "Please select at least one product");
+            return modelAndView;
+        }
         productService.deleteAllProducts(id);
         return new ModelAndView("redirect:/showProducts");
     }

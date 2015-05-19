@@ -85,7 +85,13 @@
 
 <c:if test="${not empty param.deleted}">
     <div class="alert alert-success">
-        <c:out value="Deleted product"></c:out>
+        <c:out value="Product deleted"></c:out>
+    </div>
+</c:if>
+
+<c:if test="${not empty param.error}">
+    <div class="alert alert-warning">
+        <c:out value="Please mark at least one product for deletion"></c:out>
     </div>
 </c:if>
 <form:form class="form-horizontal" role="form" action="deleteAll" method="POST">
@@ -110,7 +116,7 @@
     </c:forEach>
     </tr>
 </table>
-    <button type="submit" class="btn btn-default">Delete All</button>
+    <button type="submit" class="btn btn-danger triggerDeleteAll" style="margin-left:12px">Delete All</button>
 </form:form>
 
 </body>
