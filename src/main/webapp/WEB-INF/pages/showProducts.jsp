@@ -117,8 +117,10 @@
     </tr>
 </table>
     <button type="submit" class="btn btn-danger triggerDeleteAll" style="margin-left:12px">Delete All</button>
-    <button type="submit" class="btn btn-danger triggerAddProduct" style="margin-left:12px">Add Product(s)</button>
 </form:form>
+    <form:form action="addProduct" method="GET">
+        <button type="submit" class="btn btn-success" style="margin-left:12px">Add Product</button>
+    </form:form>
 
 </body>
 </html>
