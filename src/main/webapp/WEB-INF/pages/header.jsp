@@ -19,7 +19,8 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -32,10 +33,12 @@
                     <li><a href='<spring:url value="/showProducts" />'>Show Products</a></li>
                     <li><a href='<spring:url value="/dummyCatalog" />'>Go to Catalog</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
     </nav>
-    </div>
+</div>
 
 </body>
 </html>
